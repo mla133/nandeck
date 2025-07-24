@@ -1,0 +1,64 @@
+[img1]=none
+[img2]=none
+INPUTTEXT="wid","Width (cm)","6"
+INPUTTEXT="hei","Height (cm)","9"
+INPUTTEXT="dep","Depth (cm)","3"
+INPUTCHOICE="extra","Add extra lines","Yes","Yes|No"
+INPUTTEXT="img1","Box image (front)","",G
+INPUTTEXT="img2","Box image (rear)","",G
+[fla]=[dep]/2
+[ide]=[fla]/2
+[col1]=#000000
+[col2]=EMPTY
+[thi]=0.1
+;Uncomment the following line for A4 paper
+;PAGE=21,29.7,PORTRAIT,HV
+;Uncomment the following line for Letter paper
+PAGE=21.59,27.94,PORTRAIT,HV
+BORDER=NONE
+CARDSIZE=[fla]+[dep]+[hei]+[dep]+[fla],[dep]+[wid]+[dep]+[wid]+[fla]
+IF=[img1]=none
+ELSE
+IMAGE=1,[img1],[fla]+[dep],[dep],[hei],[wid],90,P
+ENDIF
+IF=[img2]=none
+ELSE
+IMAGE=1,[img2],[fla]+[dep],[dep]+[wid]+[dep],[hei],[wid],90,P
+ENDIF
+RECTANGLE=1,[fla]+[dep] ,0 ,[hei],[dep],[col1],[col2],[thi]
+RECTANGLE=1,[fla] ,[dep] ,[dep],[wid],[col1],[col2],[thi]
+RECTANGLE=1,[fla]+[dep] ,[dep] ,[hei],[wid],[col1],[col2],[thi]
+RECTANGLE=1,[fla]+[dep]+[hei],[dep] ,[dep],[wid],[col1],[col2],[thi]
+RECTANGLE=1,[fla]+[dep] ,[dep]+[wid] ,[hei],[dep],[col1],[col2],[thi]
+RECTANGLE=1,[fla]+[dep] ,[dep]+[wid]+[dep],[hei],[wid],[col1],[col2],[thi]
+LINE=1,[fla]+[dep] ,0 ,[fla]+[dep]-[fla],[ide] ,[col1],[thi]
+LINE=1,[fla]+[dep]-[fla],[ide] ,[fla]+[dep]-[fla],[dep]-[ide],[col1],[thi]
+LINE=1,[fla]+[dep]-[fla],[dep]-[ide],[fla]+[dep] ,[dep] ,[col1],[thi]
+LINE=1,[fla]+[dep]+[hei] ,0 ,[fla]+[dep]+[hei]+[fla],[ide] ,[col1],[thi]
+LINE=1,[fla]+[dep]+[hei]+[fla],[ide] ,[fla]+[dep]+[hei]+[fla],[dep]-[ide],[col1],[thi]
+LINE=1,[fla]+[dep]+[hei]+[fla],[dep]-[ide],[fla]+[dep]+[hei] ,[dep] ,[col1],[thi]
+LINE=1,[fla] ,[dep] ,[fla]-[fla],[dep]+[ide] ,[col1],[thi]
+LINE=1,[fla]-[fla],[dep]+[ide] ,[fla]-[fla],[dep]+[wid]-[ide],[col1],[thi]
+LINE=1,[fla]-[fla],[dep]+[wid]-[ide],[fla] ,[dep]+[wid] ,[col1],[thi]
+LINE=1,[fla]+[dep]+[hei]+[dep] ,[dep] ,[fla]+[dep]+[hei]+[dep]+[fla],[dep]+[ide] ,[col1],[thi]
+LINE=1,[fla]+[dep]+[hei]+[dep]+[fla],[dep]+[ide] ,[fla]+[dep]+[hei]+[dep]+[fla],[dep]+[wid]-[ide],[col1],[thi]
+LINE=1,[fla]+[dep]+[hei]+[dep]+[fla],[dep]+[wid]-[ide],[fla]+[dep]+[hei]+[dep] ,[dep]+[wid] ,[col1],[thi]
+LINE=1,[fla]+[dep] ,[dep]+[wid] ,[fla]+[dep]-[fla],[dep]+[wid]+[ide] ,[col1],[thi]
+LINE=1,[fla]+[dep]-[fla],[dep]+[wid]+[ide] ,[fla]+[dep]-[fla],[dep]+[wid]+[dep]-[ide],[col1],[thi]
+LINE=1,[fla]+[dep]-[fla],[dep]+[wid]+[dep]-[ide],[fla]+[dep] ,[dep]+[wid]+[dep] ,[col1],[thi]
+LINE=1,[fla]+[dep]+[hei] ,[dep]+[wid] ,[fla]+[dep]+[hei]+[fla],[dep]+[wid]+[ide],[col1],[thi]
+LINE=1,[fla]+[dep]+[hei]+[fla],[dep]+[wid]+[ide] ,[fla]+[dep]+[hei]+[fla],[dep]+[wid]+[dep]-[ide],[col1],[thi]
+LINE=1,[fla]+[dep]+[hei]+[fla],[dep]+[wid]+[dep]-[ide],[fla]+[dep]+[hei],[dep]+[wid]+[dep] ,[col1],[thi]
+LINE=1,[fla]+[dep] ,[dep]+[wid]+[dep]+[wid] ,[fla]+[dep]+[ide] ,[dep]+[wid]+[dep]+[wid]+[fla],[col1],[thi]
+LINE=1,[fla]+[dep]+[ide],[dep]+[wid]+[dep]+[wid]+[fla],[fla]+[dep]+[hei]-[ide], [dep]+[wid]+[dep]+[wid]+[fla],[col1],[thi]
+LINE=1,[fla]+[dep]+[hei]-[ide],[dep]+[wid]+[dep]+[wid]+[fla],[fla]+[dep]+[hei], [dep]+[wid]+[dep]+[wid],[col1],[thi]
+IF=[extra]=Yes
+LINE=1,[fla]+[dep]+[hei]-[fla],[dep],[fla]+[dep]+[hei]-[fla],[dep]+[wid],[col1],[thi],DSS
+{
+BEZIER=1,
+[fla]+[dep]+[hei],[dep]+[wid]+[dep]+[wid]/2-[ide],
+[fla]+[dep]+[hei]-[ide],[dep]+[wid]+[dep]+[wid]/2-[ide],
+[fla]+[dep]+[hei]-[ide],[dep]+[wid]+[dep]+[wid]/2+[ide],
+[fla]+[dep]+[hei],[dep]+[wid]+[dep]+[wid]/2+[ide],
+[col1],[thi]}
+ENDIF

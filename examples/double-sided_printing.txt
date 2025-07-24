@@ -1,0 +1,10 @@
+page=21,29.7,portrait,hv
+link=double-sided.xlsx
+[range_front]=1-{(front)}
+[range_back]={(front)+1}-{(front)*2}
+font=arial,32,,#FFFFFF,#0000FF
+text=[range_front],[front],0,0,100%,100%
+font=arial,32,,#FFFFFF,#FF0000
+text=[range_back],[back],0,0,100%,100%
+duplex=[range_front],[range_back]
+print=duplex

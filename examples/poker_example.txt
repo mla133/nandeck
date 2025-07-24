@@ -1,0 +1,46 @@
+[pos_sym] = 0, 1.5, 1.5, 1.5
+[pos_val] = 0, 0, 1.5, 1.5
+
+[pos_tl] = 0, 0, 1.5, 3
+[pos_bl] = 0, 6, 1.5, 3
+[pos_tr] = 4.5, 0, 1.5, 3
+[pos_br] = 4.5, 6, 1.5, 3
+
+[char_sym] = symbol, 36, "B"
+[char_val] = arial, 36, "B"
+
+[red] = #FF0000
+[black] = #000000
+
+[val] = "A|2|3|4|5|6|7|8|9|10|J|Q|K"
+
+font=[char_val], [red]
+text="1-26", [val], [pos_val],"center"
+font=[char_sym], [red]
+text="1-13", "\169\",[pos_sym],"center"
+text="14-26","\168\",[pos_sym],"center"
+
+font=[char_val], [black]
+text="27-52", [val], [pos_val],"center"
+font=[char_sym], [black]
+text="27-39", "\167\",[pos_sym],"center"
+text="40-52","\170\",[pos_sym],"center"
+
+copy="1-52", [pos_tl],[pos_tr], 0
+copy="1-52", [pos_tl],[pos_bl], 180
+copy="1-52", [pos_tl],[pos_br], 180
+
+; use ALT-0167 to enter the § symbol
+[pos_cnt]= 1,1,4,7
+; this next set of lines add the pips for the numbered cards
+font=[char_sym],[red]
+text=1-10, "\169\{X§}",[pos_cnt],"center","charwrap"
+text=14-23, "\168\{X§-13}", [pos_cnt],"center","charwrap"
+font=[char_sym],[black]
+text=27-36, "\167\{X§-26}", [pos_cnt],"center","charwrap"
+text=40-49, "\167\{X§-26}", [pos_cnt],"center","charwrap"
+
+; use these images for the Jacks/Queens/Kings
+image="11,24,37,50", "jack.gif", [pos_cnt], 0, TP
+image="12,25,38,51", "queen.gif", [pos_cnt], 0, TP
+image="13,26,39,52", "king.gif", [pos_cnt], 0, TP

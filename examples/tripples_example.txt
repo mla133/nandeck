@@ -1,0 +1,39 @@
+cardsize=2,2
+;draw and save an image (an arrow)
+line=0,1 ,0.2,1 ,1 ,#000000,0.15
+line=0,1 ,0.2,1.2,0.4,#0000FF,0.15
+line=0,1.2,0.4,0.8,0.4,#0000FF,0.15
+line=0,0.8,0.4,1 ,0.2,#0000FF,0.15
+save=0,"arrow.bmp",0,0,2,2
+;create all the permutations (256) of two elements (0 and 1) taken eight times
+pr[perm]8=0|1
+;takes only the tiles with three '1'
+[tiles]=filter(+[perm],3)
+[all]=1-{(tiles)}
+;draws a dot
+ellipse=[all],0.95,0.05,0.1,0.1,#000000
+;draws the eight arrows
+if=[tiles:8,1]=1
+image=[all],"arrow.bmp",0,0,2,2,0,T
+endif
+if=[tiles:7,1]=1
+image=[all],"arrow.bmp",-0.5,-0.5,3,3,45,T
+endif
+if=[tiles:6,1]=1
+image=[all],"arrow.bmp",0,0,2,2,90,T
+endif
+if=[tiles:5,1]=1
+image=[all],"arrow.bmp",-0.5,-0.5,3,3,135,T
+endif
+if=[tiles:4,1]=1
+image=[all],"arrow.bmp",0,0,2,2,180,T
+endif
+if=[tiles:3,1]=1
+image=[all],"arrow.bmp",-0.5,-0.5,3,3,225,T
+endif
+if=[tiles:2,1]=1
+image=[all],"arrow.bmp",0,0,2,2,270,T
+endif
+if=[tiles:1,1]=1
+image=[all],"arrow.bmp",-0.5,-0.5,3,3,315,T
+endif
