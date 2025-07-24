@@ -1,8 +1,7 @@
 CARDSIZE=6.35,8.89
 
 LinkMulti = Amount
-LINK=TrollCards.xlsx
-;(DONT FORGET TO REPLACE THIS FILE PATH)
+LINK=data/data.xlsx
 
 VISUAL=, 10, 10
 IMAGE=”1-{(CARDLAYOUT)}”,[CARDLAYOUT],0%,0%,100%,100%,0,PN
@@ -12,5 +11,6 @@ FONT=Arial,10,T,#000000
 TEXT=”1-{(TEXT)}”,[TEXT],12%,61%,77%,30%,CENTER,WWCENTER
 IMAGE=”1-{(IMAGE)}”,[IMAGE],12%,13%,77%,43%,0,PN
 ENDVISUAL
+;TEXT=Debug;0,0,100,10;[Cards.Image]
 
 Zoom = 92
