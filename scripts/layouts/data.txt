@@ -1,0 +1,4 @@
+title,image,description,power,cost
+Desert,desert.jpg,"A desert...there's lots of sand...",8,2
+Forest,forest.jpg,"There's a lotta trees...",10,3
+Swamp,swamp.jpg,"It stinks here...",5,5
